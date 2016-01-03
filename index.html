@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Mogolab-provder-angularjs : MongoLab API provider for AngularJs">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Mogolab-provder-angularjs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/alex-lens/mogolab-provder-angularjs">View on GitHub</a>
+
+          <h1 id="project_title">Mogolab-provder-angularjs</h1>
+          <h2 id="project_tagline">MongoLab API provider for AngularJs</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/alex-lens/mogolab-provder-angularjs/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/alex-lens/mogolab-provder-angularjs/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="mongolab-api---provider-for-angularjs" class="anchor" href="#mongolab-api---provider-for-angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://docs.mongolab.com/restapi/">MongoLab API </a>  provider for AngularJs</h2>
+
+<h3>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h3>
+
+<ul>
+<li>AngularJS 1.2+</li>
+<li>MongoLab api key, database</li>
+</ul>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<ol>
+<li>
+<p>Create main module (main.js) with simple code:</p>
+
+<pre><code>angular.module('app', []);
+</code></pre>
+</li>
+<li>
+<p>Create your controller (AppController.js):</p>
+
+<pre><code>angular.module('app').controller('AppController', ['$scope', 'mongoLabProvider',
+function($scope, mongoLabProvider) {
+$scope.mongoDb = 'test-db';
+</code></pre>
+
+<p>all params the same as in <a href="http://docs.mongolab.com/restapi/#list-documents">MongoLab API Doc </a></p>
+
+<pre><code>var params = {l: '5', s: '{ "_id": -1}'};
+mongoLabProvider.getDocuments($scope.mongoDb, 'messages', params)
+    .success(function(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+    }).
+    error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+    });
+ }]);
+</code></pre>
+</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Mogolab-provder-angularjs maintained by <a href="https://github.com/alex-lens">alex-lens</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
